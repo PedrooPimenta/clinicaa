@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Registrar{% endblock %}
+
+{% block content %}
+<section class="vh-100 gradient-custom">
+  <div class="container py-8" style="width: 100%; height: 100vh;">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-md-7 order-md-2">
+        <div class="card  " style="border-radius: 1rem; width: 100%; height: 100%; background-color: rgb(102, 178, 255);">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-12 mt-5">
+                <h2 class="text-center fw-bold mb-2 text-uppercase">Registrar Funcionário</h2>
+                <p class="text-white-50 text-center mb-5">Por favor, preencha os detalhes abaixo para registrar um novo funcionário.</p>
+                <form method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  {{ form|crispy }}
+                  <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-outline-light btn-lg px-5">Registrar</button>
+                    <a class="btn btn-outline-light btn-lg" href="/">Voltar</a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,13 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="text-center">
+    <h4 class="fas fa-user    " > Seja Bem vindo, <strong> {{ request.user }} </strong></h4>
+
+</div>
+<div class="text-center">
+    <img class=" img-fluid rounded" src="{% static 'img/img22.png' %}" style="" alt="Minha imagem">
+   </div>
+{% endblock %}

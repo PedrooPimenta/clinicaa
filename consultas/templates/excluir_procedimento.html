@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Excluir Procedimento{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Excluir Procedimento</h2>
+    <p>Você tem certeza que deseja excluir este Procedimento?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Confirmar Exclusão</button>
+    </form>
+</div>
+{% endblock %}

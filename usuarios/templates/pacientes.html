@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Pacientes</h2>
+    <hr>
+   
+    <hr>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                
+                <th>Data de cadastro</th>
+                <th>Email</th>
+                <th>Opções</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for paciente in membros_pacientes %}
+            <tr>
+                <td>{{ paciente.username }}</td>
+                <td>{{ paciente.date_joined }}</td>
+                <td>{{ paciente.email }}</td>
+               
+                <td>
+                    <a href="{% url 'editar_paciente' paciente.id %}" class="btn btn-primary btn-sm">Editar</a>
+                    <a href="{% url 'excluir_paciente' paciente.id %}" class="btn btn-danger btn-sm">Excluir</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+   
+</div>
+<ul class="pagination justify-content-center">
+    {% if page_obj.has_previous %}
+    <li class="page-item"><a class="page-link" href="?page=1">Primeira</a></li>
+   <li class="page-item"><a  href="?page={{ page_obj.previous_page_number }}&q={{ request.GET.q }}" class=" page-link">Anterior</a></li> 
+    {% endif %}
+    <li class="page-item">
+        <span class="page-link ">Página: {{page_obj.number}} de {{page_obj.paginator.num_pages}}</span>
+    </li>
+   
+    {% if page_obj.has_next %}
+    <li class="page-item"><a class=" page-link" href="?page={{ page_obj.next_page_number }}&q={{ request.GET.q }}">Próxima</a></li>
+    <li class="page-item"><a class=" page-link"href="?page-{{page_obj.paginator.num_pages}}">Última</a></li>
+    
+
+    {% endif %}
+</ul>
+<div class="container">
+    <a href="/" class="btn btn-light btn-sm">Voltar</a>
+</div>
+
+{% endblock %}

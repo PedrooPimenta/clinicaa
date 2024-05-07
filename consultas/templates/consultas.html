@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Consultas</h2>
+    <hr>
+   
+    <hr>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Paciente</th>
+                <th>Procedimento</th>
+                <th>Data</th>
+                <th>Hora</th>
+               <!--- <th>Oções</th> -->
+               
+            
+            </tr>
+        </thead>
+        <tbody>
+            {% for consulta in consultas %}
+            <tr>
+                <td>{{ consulta.paciente }}</td>
+                <td>{{ consulta.procedimento }}</td>
+                <td>{{ consulta.data }}</td>
+                <td>{{consulta.horario}}</td>
+                <!-- <td>
+                    <a href="{% url 'editar_consultas' consulta.pk %}" class="btn btn-primary btn-sm">Editar</a>
+                    <a href="{% url 'excluir_consultas' consulta.pk %}" class="btn btn-danger btn-sm">Excluir</a>
+                </td> -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<ul class="pagination justify-content-center">
+    {% if page_obj.has_previous %}
+    <li class="page-item"><a class="page-link" href="?page=1">Primeira</a></li>
+   <li class="page-item"><a  href="?page={{ page_obj.previous_page_number }}&q={{ request.GET.q }}" class=" page-link">Anterior</a></li> 
+    {% endif %}
+    <li class="page-item">
+        <span class="page-link ">Página: {{page_obj.number}} de {{page_obj.paginator.num_pages}}</span>
+    </li>
+   
+    {% if page_obj.has_next %}
+    <li class="page-item"><a class=" page-link" href="?page={{ page_obj.next_page_number }}&q={{ request.GET.q }}">Próxima</a></li>
+    <li class="page-item"><a class=" page-link"href="?page-{{page_obj.paginator.num_pages}}">Última</a></li>
+    {% endif %}
+</ul>
+<div class="container">
+    <a href="/" class="btn btn-light btn-sm">Voltar</a>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Excluir Consulta{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Excluir Consulta</h2>
+    <p>Você tem certeza que deseja excluir esta Consulta?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Confirmar Exclusão</button>
+    </form>
+</div>
+{% endblock %}

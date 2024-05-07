@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Logar{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-7 order-md-2">
+            <div class="card" style="background-color: rgb(102, 178, 255);">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12 mt-5">
+                            
+                            <h2 class="text-center">Logar</h2>
+                            <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {{ form|crispy }}
+                                <div class="text-center mt-3">
+                                    <button type="submit" class="btn btn-primary">Logar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5 order-md-1">
+           
+            <img src="{% static 'img/login.jpg' %}" class="img-fluid" alt="Logo">
+        </div>
+    </div>
+</div>
+
+{% endblock %}
