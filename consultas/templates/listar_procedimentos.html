@@ -28,7 +28,7 @@
         </tbody>
     </table>
     <a href="{% url 'cadastrar_procedimento' %}" class="btn btn-success">Cadastrar novo procedimento</a>
-    <a href="/" class="btn btn-light">Voltar </a>
+    <a  href="{% url 'home' %}" class="btn btn-light">Voltar </a>
 </div>
 <ul class="pagination justify-content-center">
     {% if page_obj.has_previous %}

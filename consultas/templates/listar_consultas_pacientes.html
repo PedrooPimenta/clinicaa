@@ -39,7 +39,7 @@
     {% endif %}
 
     <a href="{% url 'criar_consultas' %}" class="btn btn-success">Agendar Consulta</a>
-    <a href="/" class="btn btn-light">Voltar </a>
+    <a  href="{% url 'home' %}" class="btn btn-light">Voltar </a>
 </div>
 <ul class="pagination justify-content-center">
     {% if page_obj.has_previous %}

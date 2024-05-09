@@ -2,7 +2,7 @@ from django.urls import path
 from .views import ConsultaCreateView,ExcluirConsulta,ConsultaListView,EditarConsulta, ConsultaListViewPacientes, CadastrarProcedimento , EditarProcedimento, ExcluirProcedimento, ListarProcedimentos
 
 urlpatterns = [
-    path('', ConsultaListView.as_view(), name='listar_consultas'),
+    path('consultas-clinica', ConsultaListView.as_view(), name='listar_consultas'),
     path('nova/', ConsultaCreateView.as_view(), name='criar_consultas'),
     path('excluir/<int:pk>/', ExcluirConsulta.as_view(), name='excluir_consultas'),
     path('editar/<int:pk>/', EditarConsulta.as_view(), name='editar_consultas'),
